@@ -1,0 +1,4 @@
+Cohere response for prompt: using artificial intelligence tell me the total area of Bhopal 
+ **************************
+
+The total area of Bhopal, a city in the central Indian state of Madhya Pradesh is 463 square kilometers or 178.76 square miles.

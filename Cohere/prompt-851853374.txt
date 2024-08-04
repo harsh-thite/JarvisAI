@@ -1,0 +1,4 @@
+Cohere response for prompt: using artificial intelligence tell me the area of India 
+ **************************
+
+The total area of India is approximately 3,287,263 square kilometers (1,269,219 sq mi). This includes the main Indian subcontinent, as well as the Indian-administered territories of Jammu and Kashmir, Ladakh, and the Andaman and Nicobar Islands. India is the seventh-largest country by area, ranking behind Russia, Canada, China, the United States, Brazil, and Australia.

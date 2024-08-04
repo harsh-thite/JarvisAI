@@ -1,0 +1,4 @@
+Cohere response for prompt: using artificial intelligence tell me the total area of Patna 
+ **************************
+
+The total area of Patna is 172 square kilometers, or 66.41 square miles.
