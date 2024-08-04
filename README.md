@@ -23,6 +23,7 @@ Before installing JarvisAI, ensure you have the following:
 - pip (Python package installer) to manage project dependencies.
 - Cohere API key which you can obtain by signing up on Cohere's website (https://docs.cohere.com/)
 ## Installation
+- PyCharm (recommended)
 
 Follow these steps to install JarvisAI on your desktop:
 
