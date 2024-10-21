@@ -1,7 +1,7 @@
 
 # IntraAI - Your AI-Powered Desktop Assistant
 
-Welcome to IntraAI, an advanced AI desktop assistant seamlessly integrated with Cohere AI. Designed to enhance your productivity, IntraAI automates tasks, manages schedules, and provides intelligent recommendations through an intuitive and user-friendly interface. With features like smart scheduling, task automation, natural language processing, and information retrieval, JarvisAI is your go-to assistant for managing daily activities. Leveraging Cohere AI's sophisticated NLP capabilities, IntraAI understands and responds to your natural language commands, making interactions smooth and effective.
+Welcome to IntraAI, an advanced AI desktop assistant seamlessly integrated with Cohere AI. Designed to enhance your productivity, IntraAI automates tasks, manages schedules, writes emails, and provides intelligent recommendations through an intuitive and user-friendly interface. With features like smart scheduling, task automation, natural language processing, and information retrieval, IntraAI is your go-to assistant for managing daily activities. Leveraging Cohere AI's sophisticated NLP capabilities, IntraAI understands and responds to your natural language commands, making interactions smooth and effective.
 
 
 ## Features
