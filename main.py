@@ -5,7 +5,9 @@ import os
 import datetime
 import subprocess
 import cohere
-from config import apikey
+import smtplib
+import requests
+from config import apikey, weather_api_key, email_user, email_pass
 import random
 
 chatStr = ""
@@ -15,7 +17,6 @@ def chat(query):
     co = cohere.Client(apikey)
     chatStr += f"Harsh: {query}\nIntraAI: "
 
-    # Create a completion request
     response = co.generate(
         model='command-r-plus',
         prompt=chatStr,
@@ -26,7 +27,6 @@ def chat(query):
         presence_penalty=0
     )
 
-    # Wrap the response handling inside a try-catch block
     try:
         reply = response.generations[0].text
         print(reply)
@@ -39,7 +39,6 @@ def ai(prompt):
     co = cohere.Client(apikey)
     text = f"Cohere response for prompt: {prompt}\n**************************\n\n"
 
-    # Create a completion request
     response = co.generate(
         model='command-r-plus',
         prompt=prompt,
@@ -50,7 +49,6 @@ def ai(prompt):
         presence_penalty=0
     )
 
-    # Wrap the response handling inside a try-catch block
     try:
         reply = response.generations[0].text
         print(reply)
@@ -92,9 +90,36 @@ def takeCommand():
         query = "Sorry, there was an error with the speech service"
     return query
 
+# New Feature: Weather Report
+def get_weather(city):
+    try:
+        url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={weather_api_key}&units=metric"
+        res = requests.get(url)
+        data = res.json()
+        if data["cod"] != "404":
+            weather = data["main"]
+            temperature = weather["temp"]
+            say(f"The temperature in {city} is {temperature} degrees Celsius")
+        else:
+            say("City not found")
+    except Exception as e:
+        say(f"Failed to get weather: {e}")
+
+# New Feature: Send Email
+def send_email(to, content):
+    try:
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(email_user, email_pass)
+        server.sendmail(email_user, to, content)
+        server.close()
+        say("Email has been sent!")
+    except Exception as e:
+        say(f"Failed to send email: {e}")
+
 if __name__ == '__main__':
     print('PyCharm')
-    say("Hey, it is Intra A I.")
+    say("Hey, it is IntraAI.")
     print("Yes, I am Listening...")
     while True:
         query = takeCommand()
@@ -126,12 +151,19 @@ if __name__ == '__main__':
             else:
                 say("Apple Music is not installed at the expected location")
 
-        # Check for "artificial intelligence" in query
         if "artificial intelligence" in query.lower():
             ai_response = ai(prompt=query)
             say(ai_response)
 
-        # New addition for chatting with Jarvis
-        if "" in query.lower() or "chat" in query.lower():
-            chat_response = chat(query)
-            say(chat_response)
+        if "weather in" in query.lower():
+            city = query.split("in")[-1].strip()
+            get_weather(city)
+
+        if "email to" in query.lower():
+            try:
+                say("What should I say?")
+                content = takeCommand()
+                to = query.split("to")[-1].strip() + "@gmail.com"
+                send_email(to, content)
+            except Exception as e:
+                say(f"Sorry, I couldn't send the email due to: {e}")
