@@ -155,7 +155,7 @@ if __name__ == '__main__':
             ai_response = ai(prompt=query)
             say(ai_response)
 
-        if "weather in" in query.lower():
+        if "the weather in" in query.lower():
             city = query.split("in")[-1].strip()
             get_weather(city)
 
