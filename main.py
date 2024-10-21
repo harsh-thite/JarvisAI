@@ -13,7 +13,7 @@ chatStr = ""
 def chat(query):
     global chatStr
     co = cohere.Client(apikey)
-    chatStr += f"Harsh: {query}\nJarvis: "
+    chatStr += f"Harsh: {query}\nIntraAI: "
 
     # Create a completion request
     response = co.generate(
@@ -94,7 +94,7 @@ def takeCommand():
 
 if __name__ == '__main__':
     print('PyCharm')
-    say("Hey, it is Jarvis A I.")
+    say("Hey, it is Intra A I.")
     print("Yes, I am Listening...")
     while True:
         query = takeCommand()
@@ -126,7 +126,8 @@ if __name__ == '__main__':
             else:
                 say("Apple Music is not installed at the expected location")
 
-        if "Using Artificial Intelligence".lower() in query.lower():
+        # Check for "artificial intelligence" in query
+        if "artificial intelligence" in query.lower():
             ai_response = ai(prompt=query)
             say(ai_response)
 
