@@ -59,5 +59,11 @@ Once installed, launch IntraAI. You can start interacting with IntraAI using voi
 - Retrieve Information:
 "Tell me the time or the date"
 
+- Email Sending:
+"Send an email to [person]."
+
+- Weather Reporting:
+"What's the weather in Chennai?"
+
 
 
